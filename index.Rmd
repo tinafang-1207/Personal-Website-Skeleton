@@ -14,5 +14,5 @@ site: distill::distill_website
 output:
   postcards::trestles
 ---
-I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with special directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021. 
+I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with specific directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021. 
 
