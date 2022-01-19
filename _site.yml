@@ -1,0 +1,16 @@
+name: "."
+title: "ESM244 Personal Website"
+theme: postcards.css
+description: |
+  ESM244 Personal Website
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Yutian"             
+      href: index.html 
+output: distill::distill_article
+

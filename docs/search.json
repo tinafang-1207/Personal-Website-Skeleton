@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-01-18T18:19:41-08:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Yutian Fang",
+      "author": [],
+      "contents": "\n\n          \n          \n          ESM244 Personal Website\n          \n          \n          Home\n          About\n          Yutian\n          ☰\n          \n          \n      \n        \n          \n            \n              \n            \n              Yutian Fang\n            \n            \n              \n                \n                    \n                      \n                        LinkedIn\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Twitter\n                      \n                    \n                  \n                                    \n                    \n                      \n                        GitHub\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Email\n                      \n                    \n                  \n                                  \n            \n          \n        \n        \n        \n          \n            I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with special directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021.\n          \n        \n      \n    \n\n    \n      \n        \n          \n            \n              \n            \n              Yutian Fang\n            \n            \n              \n                \n                                    \n                    \n                      LinkedIn\n                    \n                  \n                                    \n                    \n                      Twitter\n                    \n                  \n                                    \n                    \n                      GitHub\n                    \n                  \n                                    \n                    \n                      Email\n                    \n                  \n                                  \n              \n            \n            \n              I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with special directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021.\n            \n        \n      \n    \n\n    \n    \n    ",
+      "last_modified": "2022-01-18T18:19:41-08:00"
+    }
+  ],
+  "collections": []
+}
