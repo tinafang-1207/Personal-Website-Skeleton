@@ -1,9 +1,9 @@
 ---
 title: "welcome"
 description: |
-  A short description of the post.
+  Hellow and Welcome to the website.
 author:
-  - name: 方雨田
+  - name: Yutian Fang
 date: 2022-01-19
 output:
   distill::distill_article:
