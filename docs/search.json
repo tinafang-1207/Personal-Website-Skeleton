@@ -5,21 +5,21 @@
       "title": "About Me",
       "author": [],
       "contents": "\nHi! this is Yutian, and I’m currently the first-year Ph.D. student in Bren School of Environmental Science and Management. My current research interest has largely focused on exploring the potential of Dynamic Ocean Management (DOM) to reduce fishery bycatch. More boradly, I’m interested in marine spatial planning, fishery management and marine conservation, with my ultimate goal to create benefits for both human society and natural world. During my free time, I like to listen to music, watch TV shows, reading, chat with my friends and also walk by the beach of Santa Barbara.\nMy past research has covered the discipline of marine ecology, marine spatial planning, and marine conservation.Some featured experiences include mapping the trophically transmitted parasites onto geographic distribution of three fish species (Atherinops affinis, Gillichthys mirabilis, and Fundulus parvipinnis), mapping the global small-scale fishing area (with help to establish global database for exclusive fishing rights for SSF), and also estimating the small cetacean bycatch from Tuna Gillnet fisheries in Indian Ocean. Please check out more details of all my past projects in “project”.\n\n\n\n",
-      "last_modified": "2022-02-05T17:53:06-08:00"
+      "last_modified": "2022-02-08T15:08:22-08:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-05T17:53:07-08:00"
+      "last_modified": "2022-02-08T15:08:23-08:00"
     },
     {
       "path": "index.html",
       "title": "Yutian Fang",
       "author": [],
       "contents": "\n\n          \n          \n          ESM244 Personal Website\n          \n          \n          Home\n          About Me\n          Blog\n          Project\n          ☰\n          \n          \n      \n        \n          \n            \n              \n            \n              Yutian Fang\n            \n            \n              \n                \n                    \n                      \n                        LinkedIn\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Twitter\n                      \n                    \n                  \n                                    \n                    \n                      \n                        GitHub\n                      \n                    \n                  \n                                    \n                    \n                      \n                        Email\n                      \n                    \n                  \n                                  \n            \n          \n        \n        \n        \n          \n            I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with specific directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021. See more about my research interets and previous experiences in “About Me” page and also my CV.\n          \n        \n      \n    \n\n    \n      \n        \n          \n            \n              \n            \n              Yutian Fang\n            \n            \n              \n                \n                                    \n                    \n                      LinkedIn\n                    \n                  \n                                    \n                    \n                      Twitter\n                    \n                  \n                                    \n                    \n                      GitHub\n                    \n                  \n                                    \n                    \n                      Email\n                    \n                  \n                                  \n              \n            \n            \n              I am currently a Ph.D. student at Bren School of Environmental Science and Management, UC Santa Barbara. My research interest largely focuses on marine conservation and fishery management, with specific directions on dynamic ocean management, marine spatial planning and fishery bycatch reduction. I received my Bachelor of Science degree in marine biology from UC San Diego in 2019, and Master of Environmental Management degree from Duke University in 2021. See more about my research interets and previous experiences in “About Me” page and also my CV.\n            \n        \n      \n    \n\n    \n    \n    ",
-      "last_modified": "2022-02-05T17:53:07-08:00"
+      "last_modified": "2022-02-08T15:08:23-08:00"
     },
     {
       "path": "project.html",
@@ -27,7 +27,7 @@
       "description": "Current and Past Project.",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-05T17:53:08-08:00"
+      "last_modified": "2022-02-08T15:08:24-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
