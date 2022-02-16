@@ -1,8 +1,8 @@
 name: "."
-title: "ESM244 Personal Website"
+title: "Yutian Fang"
 theme: postcards.css
 description: |
-  ESM244 Personal Website
+  Yutian Fang
 output_dir: "docs"
 navbar:
   right:
@@ -10,9 +10,15 @@ navbar:
       href: index.html
     - text: "About Me"
       href: about.html
+    - text: "Project"
+      menu:
+        - text: "Course Project"
+          href: course_project.html
+        - text: "Research Project"
+          href: research_project.html
+    - text: "CV"
+      href: CV.html
     - text: "Blog"             
       href: blog.html 
-    - text: "Project"             
-      href: Project.html 
 output: distill::distill_article
 

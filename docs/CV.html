@@ -87,26 +87,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>ESM244 Personal Website: Blog</title>
+  <title>Yutian Fang: Curriculum Vitae</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="ESM244 Personal Website: Blog"/>
+  <meta property="og:title" content="Yutian Fang: Curriculum Vitae"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="ESM244 Personal Website"/>
+  <meta property="og:site_name" content="Yutian Fang"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="ESM244 Personal Website: Blog"/>
+  <meta property="twitter:title" content="Yutian Fang: Curriculum Vitae"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Blog"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Curriculum Vitae"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2123,8 +2123,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Amiri');
-  @import url('https://fonts.googleapis.com/css2?family=Bitter');
+  @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Indie+Flower&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
 
 
@@ -2142,10 +2142,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --aside-color:     rgba(0, 0, 0, 0.6);
     --fig-cap-color:   rgba(0, 0, 0, 0.6);
     /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    "Amiri", serif;
+    --heading-font:    "Indie Flower", cursive;
     --mono-font:       "DM Mono", monospace;
-    --body-font:       "Bitter", sans-serif
-    --navbar-font:     "Amiri", serif;  /* websites + blogs only */
+    --body-font:       "Gideon Roman", cursive;
+    --navbar-font:     "Indie Flower", cursive; /* websites + blogs only */
   }
 
   /*-- ARTICLE METADATA --*/
@@ -2175,10 +2175,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   .distill-site-header {
     --title-size:       18px;    
-    --text-color:       #ff414b; /* edited */
-    --text-size:        15px;
+    --text-color:       #c808f9; /* edited */
+    --text-size:        20px;
     --hover-color:      #dd424c; /* edited */
-    --bkgd-color:       #ffd8db; /* edited */
+    --bkgd-color:       #e5cce5; /* edited */
   }
 
   .distill-site-footer {
@@ -2347,18 +2347,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Blog","authors":[]}
+{"title":"Curriculum Vitae","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2366,14 +2374,25 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">ESM244 Personal Website</a>
+<a href="index.html" class="title">Yutian Fang</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="about.html">About Me</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Project
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="course_project.html">Course Project</a>
+<a href="research_project.html">Research Project</a>
+</div>
+</div>
+<a href="CV.html">CV</a>
 <a href="blog.html">Blog</a>
-<a href="Project.html">Project</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2381,168 +2400,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Blog">Blog</h1>
-<a href="posts/2022-01-19-welcome/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 19, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">方雨田</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>welcome</h2>
-<div class="dt-tags"></div>
-<p>A short description of the post.</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Blog</h1>
+<h1>Curriculum Vitae</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2550,6 +2410,58 @@ function init_posts_list() {
 
 
 <div class="d-article">
+<p><a href = 'Yutian_Fang_CV.pdf' target = '_blank'>Click here for a full PDF version</a></p>
+<h2 id="education">Education</h2>
+<ul>
+<li>University of California, San Diego (09/2015 - 06/2019)
+<ul>
+<li>Bachelor of Science: Marine Biology, GPA: 3.9/4.0</li>
+</ul></li>
+<li>Duke University, Nicholas School of Environment (08/2019 - 04/2021)
+<ul>
+<li>Master of Environmental Management: Coastal Environmental Management, GPA: 3.95/4.0</li>
+</ul></li>
+</ul>
+<h2 id="research-experience">Research Experience</h2>
+<h3 id="master-experience">Master Experience</h3>
+<ul>
+<li>Research Assistant - Duke University Marine Laboratory (06/2020 - 04/2021)
+<ul>
+<li>Conducted legislation review on exclusive fishing rights for small-scale fisheries on a global basis, and compile the information into a global database</li>
+<li>Used ArcGIS pro to delineate the exclusive small-scale fishing zone for each country, and did comparative geospatial analysis between exclusive small-scale fishing zone and other important marine regions</li>
+</ul></li>
+<li>Independent Master Project - Duke University Marine Laboratory (08/2020 - 04/2021)
+<ul>
+<li>Described the current status of known information about marine mammals, marine mammal bycatch and gillnet fisheries in the Indian Ocean, and identify where there are knowledge gaps</li>
+<li>Conducted systematic literature review about marine mammal species and density, marine mammal bycatch, and fishing efforts in the Indian Ocean</li>
+<li>Produced graphs about how do marine mammal bycatch numbers change between years from Sri Lanka, India and Pakistan</li>
+</ul></li>
+</ul>
+<h3 id="undergraduate-exprience">Undergraduate Exprience</h3>
+<ul>
+<li>Independent Research Project - Scripps Institution of Oceanography (02/2019 - 06/2019)
+<ul>
+<li>Spent 10 hours/week to conduct dissections of three fish species (Atherinops affinis, Gillichthys mirabilis, and Fundulus parvipinnis) in laboratory</li>
+<li>Counted, identified and categorized parasites based on their taxonomy and consumer strategies</li>
+<li>Did comparative statistical analysis between the richness of parasites and the geographical range of their host species, produced research poster to present in the undergraduate research symposium</li>
+</ul></li>
+<li>Volunteer Research Assistant - NOAA Southwest Fisheries Science Center (09/2018 - 01/2019)
+<ul>
+<li>Participated and assisted in population survey and tagging for Green sea turtle and coastal bottlenose dolphin along the coast of California</li>
+<li>Assisted in necropsy of dead marine mammals in order to determine cause of fatality in NOAA stranding response network</li>
+</ul></li>
+<li>Research Assistant - Scripps Institution of Oceanography (01/2018 - 07/2018)
+<ul>
+<li>Took care of sample killifish (Fundulus parvipinnis), collected designated parasites from the sample snails from mesocosom, counted and observed parasites with microscopes, calculated numbers of parasite on each fishery, and processed infection</li>
+<li>Reviewed recorded video of fish behavior, and analyzed fish behaviors before parasites infection, after parasites infection,and infection by different parasites, and then documented changes in fish behavior</li>
+</ul></li>
+</ul>
+<h2 id="skill">Skill</h2>
+<ul>
+<li>Computer Skill: Microsoft Office Software, proficient in ArcGIS related software (certificate in geospatial analysis), proficient in R, working knowledge of Python and Nvivo12</li>
+<li>Lab Skill: Microscopy, Pipette, Sterilization, Gel electrophoresis, Polymerase Chain Reation (PCR), Western Blot, Epifluoresence microscopy, Animal dissection and necropsy</li>
+<li>Language Skill: Chinese (Native), English (Highly Proficient), Spanish (Beginner)</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

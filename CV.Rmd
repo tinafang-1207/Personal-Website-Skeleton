@@ -1,0 +1,39 @@
+---
+title: "Curriculum Vitae"  
+---
+<a href = 'Yutian_Fang_CV.pdf' target = '_blank'>Click here for a full PDF version</a>
+
+## Education
+
+* University of California, San Diego (09/2015 - 06/2019)
+  - Bachelor of Science: Marine Biology, GPA: 3.9/4.0
+* Duke University, Nicholas School of Environment (08/2019 - 04/2021)
+  - Master of Environmental Management: Coastal Environmental Management, GPA: 3.95/4.0
+
+## Research Experience
+
+### Master Experience
+* Research Assistant - Duke University Marine Laboratory (06/2020 - 04/2021)
+  - Conducted legislation review on exclusive fishing rights for small-scale fisheries on a global basis, and compile the information into a global database
+  - Used ArcGIS pro to delineate the exclusive small-scale fishing zone for each country, and did comparative geospatial analysis between exclusive small-scale fishing zone and other important marine regions
+* Independent Master Project - Duke University Marine Laboratory (08/2020 - 04/2021)
+  - Described the current status of known information about marine mammals, marine mammal bycatch and gillnet fisheries in the Indian Ocean, and identify where there are knowledge gaps
+  - Conducted systematic literature review about marine mammal species and density, marine mammal bycatch, and fishing efforts in the Indian Ocean
+  - Produced graphs about how do marine mammal bycatch numbers change between years from Sri Lanka, India and Pakistan
+
+### Undergraduate Exprience
+* Independent Research Project - Scripps Institution of Oceanography (02/2019 - 06/2019)
+  - Spent 10 hours/week to conduct dissections of three fish species (Atherinops affinis, Gillichthys mirabilis, and Fundulus parvipinnis) in laboratory
+  - Counted, identified and categorized parasites based on their taxonomy and consumer strategies
+  - Did comparative statistical analysis between the richness of parasites and the geographical range of their host species, produced research poster to present in the undergraduate research symposium
+* Volunteer Research Assistant - NOAA Southwest Fisheries Science Center (09/2018 - 01/2019)
+  - Participated and assisted in population survey and tagging for Green sea turtle and coastal bottlenose dolphin along the coast of California
+  - Assisted in necropsy of dead marine mammals in order to determine cause of fatality in NOAA stranding response network
+* Research Assistant - Scripps Institution of Oceanography (01/2018 - 07/2018)
+  - Took care of sample killifish (Fundulus parvipinnis), collected designated parasites from the sample snails from mesocosom, counted and observed parasites with microscopes, calculated numbers of parasite on each fishery, and processed infection
+  - Reviewed recorded video of fish behavior, and analyzed fish behaviors before parasites infection, after parasites infection,and infection by different parasites, and then documented changes in fish behavior
+
+## Skill
+* Computer Skill: Microsoft Office Software, proficient in ArcGIS related software (certificate in geospatial analysis), proficient in R, working knowledge of Python and Nvivo12
+* Lab Skill: Microscopy, Pipette, Sterilization, Gel electrophoresis, Polymerase Chain Reation (PCR), Western Blot, Epifluoresence microscopy, Animal dissection and necropsy
+* Language Skill: Chinese (Native), English (Highly Proficient), Spanish (Beginner)

@@ -2,10 +2,13 @@
 title: "About Me"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+## General
+Hi! My name is Yutian, and I come from Beijing, China. I spent the time of my primary and middle school in Beijing, and have been to the United States for my college education since 2015. Growing up in a large city that severely lack water resources, I always enjoy spending my vacations with my family in Hainan province, a tropical island in southern China unique for its diverse marine resources. However, as I witnessed environmental degradation in Hainan due to its unregulated industrial development, I started to wonder why we always think about how to use ocean to benefit us, rather than also trying to imagine, how we could benefit the ocean. This initial question and motivation to create benefits for the natural world and human society drove me to learn more about the environmental management in marine ecosystem. 
 
-  Hi! this is Yutian, and I'm currently the first-year Ph.D. student in [Bren School of Environmental Science and Management](https://bren.ucsb.edu/people/yutian-fang). My current research interest has largely focused on exploring the potential of Dynamic Ocean Management (DOM) to reduce fishery bycatch. More boradly, I'm interested in marine spatial planning, fishery management and marine conservation, with my ultimate goal to create benefits for both human society and natural world. During my free time, I like to listen to music, watch TV shows, reading, chat with my friends and also walk by the beach of Santa Barbara.
+## Research Interest
+My current research interest has largely focused on exploring the potential of dynamic ocean management to reduce fishery bycatch. More broadly, I'm interested in the intersection between marine spatial planning, fishery management and marine conservation, with my ultimate goal to create benefits for both human society and natural world. I intend to use simulation models to analyze the trade-off between management objectives (e.g: bycatch reduction) and management costs under different management scenarios, in order to help relevant stakeholders to choose the most cost-efficient bycatch reduction strategies. 
+
+My past research covered the disciplines of marine ecology, marine spatial planning, and marine conservation using mainly GIS and R.Some featured experiences include mapping the trophically transmitted parasites onto geographic distribution of three fish species (Atherinops affinis, Gillichthys mirabilis, and Fundulus parvipinnis), mapping the exclusive small-scale fishing area on a global basis, and estimating the small cetacean bycatch from tuna gillnet fisheries in Indian Ocean. Please check out more details and the method I used for both my course and research projects under "project" tab. 
   
-  My past research has covered the discipline of marine ecology, marine spatial planning, and marine conservation.Some featured experiences include mapping the trophically transmitted parasites onto geographic distribution of three fish species (Atherinops affinis, Gillichthys mirabilis, and Fundulus parvipinnis), mapping the global small-scale fishing area (with help to establish global database for exclusive fishing rights for SSF), and also estimating the small cetacean bycatch from Tuna Gillnet fisheries in Indian Ocean. Please check out more details of all my past projects in "project". 
+## Hobbies
+During my free time, I enjoy listening to music, watching TV shows, reading, chating with my family and friends, and also walking by the beach of Santa Barbara. 
