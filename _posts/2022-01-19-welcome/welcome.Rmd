@@ -1,7 +1,7 @@
 ---
-title: "welcome"
+title: "Welcome to my Data Science Blog"
 description: |
-  Hellow and Welcome to the website.
+  Welcome to this data science blog! In this blog, I will share some mini data science projects I did in R both from course or research which will updates at irregular schedules. I will include result and R code in each post. Click and check out each of them if you feel interested! Enjoy!
 author:
   - name: Yutian Fang
 date: 2022-01-19
@@ -10,13 +10,6 @@ output:
     self_contained: false
 ---
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+Welcome to this data science blog! In this blog, I will share some mini data science projects I did in R both from course or research which will updates at irregular schedules. I will include result and R code in each post. Click and check out each of them if you feel interested! Enjoy!
 
 

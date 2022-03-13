@@ -1,4 +1,4 @@
 ---
-title: "Blog"  
+title: "Data Science Blog"  
 listing: posts 
 ---

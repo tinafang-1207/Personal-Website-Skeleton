@@ -89,27 +89,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Yutian Fang: Featured Course Project</title>
 
-  <meta property="description" itemprop="description" content="Current and Past Course Project."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Yutian Fang: Featured Course Project"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Current and Past Course Project."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Yutian Fang"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Yutian Fang: Featured Course Project"/>
-  <meta property="twitter:description" content="Current and Past Course Project."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Featured Course Project"]},{"type":"character","attributes":{},"value":["Current and Past Course Project."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Featured Course Project"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2369,7 +2366,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Featured Course Project","description":"Current and Past Course Project.","authors":[]}
+{"title":"Featured Course Project","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2408,7 +2405,7 @@ Project
 <h1>Featured Course Project</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Current and Past Course Project.</p></p>
+
 </div>
 
 
@@ -2416,10 +2413,17 @@ Project
 <h2 id="project-1-species-distribution-model">Project 1: Species Distribution Model</h2>
 <h3 id="habitat-modeling-for-blue-rockfish-carmel-bay-california">Habitat Modeling for Blue Rockfish, Carmel Bay, California</h3>
 <h3 id="introduction">Introduction</h3>
-<p>This course project came from my Marine GIS course in Spring 2020. In this project, I built up two species distribution models for endangered blue rockfish from Carmel Bay, California, using both generalized linear regression model (GLM) and generalized additive regression model (GAM). I then compared the results from both models and made suggestions to relevant authorities regarding the best place to build marine protected area to protect the species.</p>
+<p>In this course project, I built up two species distribution models for endangered blue rockfish from Carmel Bay, California, using both generalized linear regression model (GLM) and generalized additive regression model (GAM). I then compared the results from both models and made suggestions to relevant authorities regarding the best place to build marine protected area to protect the species.</p>
 <h3 id="method">Method</h3>
 <p>General analyzing process includes generating psuedo absence points for blue rockfish, building up GLM and GAM using R (based on chosen independent variables and presence/absence data of blue rockfish), and presenting the result in ArcGIS pro.</p>
 <p><a href = 'Carmel_Bay.pdf' target = '_blank'>Click here for a full PDF Lab Report</a></p>
+<h2 id="project-2-marine-spatial-planning">Project 2: Marine Spatial Planning</h2>
+<h3 id="site-prioritization-for-marine-spatial-planning">Site Prioritization for Marine Spatial Planning</h3>
+<h3 id="introduction-1">Introduction</h3>
+<p>In this course project, I used <a href="https://prioritizr.net/">PrioritizR</a>, a package built in R that targets to solve conservation planning problems, to optimize the cost and meet conservation target for each divided conservation unit within the North Atlantic Planning region. PrioritizR supports a broad range of objectives, constraints and and penalties that can be used to custom-tailor conservation planning problems to the specific needs of conservation planning.</p>
+<h3 id="method-1">Method</h3>
+<p>General analyzing process includes putting conservation target layers (avian, fish and marine mammal abundance and habitat types) and cost layers into R and let prioritizR summarizes and choose the best conservation solution based on specific conservation targets. Two scenarios (with cost layer equal to symbolized 1, and cost layer changes based on the fishing opportunities) and three conservation targets (20% endangered species protection, 30% endangered species protection, and 30% species protection with 0.5 boundary penalty) are tested and compared.</p>
+<p><a href = 'Marine_Planning.pdf' target = '_blank'>Click here for a full PDF Lab Report</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

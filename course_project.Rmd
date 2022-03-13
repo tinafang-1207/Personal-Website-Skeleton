@@ -1,16 +1,24 @@
 ---
 title: "Featured Course Project"  
-description: |
-  Current and Past Course Project.
 ---
 ## Project 1: Species Distribution Model
 ### Habitat Modeling for Blue Rockfish, Carmel Bay, California
 
 ### Introduction
-This course project came from my Marine GIS course in Spring 2020. In this project, I built up two species distribution models for endangered blue rockfish from Carmel Bay, California, using both generalized linear regression model (GLM) and generalized additive regression model (GAM). I then compared the results from both models and made suggestions to relevant authorities regarding the best place to build marine protected area to protect the species.
+In this course project, I built up two species distribution models for endangered blue rockfish from Carmel Bay, California, using both generalized linear regression model (GLM) and generalized additive regression model (GAM). I then compared the results from both models and made suggestions to relevant authorities regarding the best place to build marine protected area to protect the species.
 
 ### Method
 General analyzing process includes generating psuedo absence points for blue rockfish, building up GLM and GAM using R (based on chosen independent variables and presence/absence data of blue rockfish), and presenting the result in ArcGIS pro.
 
 <a href = 'Carmel_Bay.pdf' target = '_blank'>Click here for a full PDF Lab Report</a>
 
+## Project 2: Marine Spatial Planning
+### Site Prioritization for Marine Spatial Planning
+
+### Introduction
+In this course project, I used [PrioritizR](https://prioritizr.net/), a package built in R that targets to solve conservation planning problems, to optimize the cost and meet conservation target for each divided conservation unit within the North Atlantic Planning region. PrioritizR supports a broad range of objectives, constraints and and penalties that can be used to custom-tailor conservation planning problems to the specific needs of conservation planning. 
+
+### Method
+General analyzing process includes putting conservation target layers (avian, fish and marine mammal abundance and habitat types) and cost layers into R and let prioritizR summarizes and choose the best conservation solution based on specific conservation targets. Two scenarios (with cost layer equal to symbolized 1, and cost layer changes based on the fishing opportunities) and three conservation targets (20% endangered species protection, 30% endangered species protection, and 30% species protection with 0.5 boundary penalty) are tested and compared. 
+
+<a href = 'Marine_Planning.pdf' target = '_blank'>Click here for a full PDF Lab Report</a>
