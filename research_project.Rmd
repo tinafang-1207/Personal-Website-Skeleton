@@ -1,6 +1,23 @@
 ---
-title: "Research Project"  
-description: |
-  Current and Past Research Project.
+title: "Research Project" 
 ---
+
+## Master Project
+### Estimating Cetacean Bycatch from Tuna Gillnet Fisheries in Sri Lanka, Pakistan and India
+
+### Introduction
+This master project employed a systematic literature review to develop a coarse estimate of cetacean bycatch, using data collected during port surveys and from observer programs for the three largest tuna drift gillnet countries: Sri Lanka, India and Pakistan, during the period from 1984 to 2019. Cumulative estimates of bycatch increased over this period, driven by increasing tuna captures over time. The study provides only a coarse estimate of bycatch, with many uncertainties associated with the extrapolations, but the magnitude of bycatch is large enough to warrant immediate management action.
+
+<a href = 'MP_Final.pdf' target = '_blank'>Click here for a full PDF Master Project Report</a>
+
+## Master Summer Internship Project
+### Preferential Access Zone in Small-scale Fisheries
+
+### Introduction
+This summer internship project using ArcGIS pro to map and calculate the exclusive small-scale fishing areas for 58 countries listed in the Illuminating Hidden Harvest (IHH) project of FAO. 
+
+<a href = 'SI_Report.pdf' target = '_blank'>Click here for a full PDF Summer Internship Report</a>
+
+
+
 

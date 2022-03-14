@@ -1,0 +1,160 @@
+---
+title: "Non-Linear Least Square (NLS)"
+description: |
+ This post demonstrates how to fit non-linear least square (NLS) to predict lizard weight based on snout-length using lizards sampled by pitfall trap at Jornada basin LTER from 1989 - 2006.
+author:
+  - name: Yutian Fang
+    url: {}
+date: 2022-03-13
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=TRUE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(here)
+library(broom)
+library(kableExtra)
+```
+
+### Overview of the data:
+
+* Data Description: The data in this task comes from lizards sampled by pitfall trap located at 11 consumer plots at Jornada Basin LTER site from 1989 - 2006. Variables focused in this study include lizard species, sex, weight and snout-to-vent length (cm). 
+* Task Objective: This task uses non-linear least square (NLS) model to predict lizard weight based on snout-to-vent length from the equation: W = a*(SVL)^b. The NLS model is first fitted to all lizard species in the dataset, and then fitted only to male Western wiptail lizard to compare RMSE between two models.
+* Analysis Process: The weight/SVL variables are first being log-transformed to fit a standard OLS regression in order to get a first guess of parameters a and b, then NLS model is built based on the final guess.This process is repeated for all species and selected species.Both models are used to train the entire dataset to get the predicted weight result, in order to calculate RMSE and compare with the species specific model
+* Data Citation: Lightfoot, D. and W.G. Whitford. 2020. Lizard pitfall trap data from 11 NPP study locations at the Jornada Basin LTER site, 1989-2006 ver 37. Environmental Data Initiative. https://doi.org/10.6073/pasta/4a6e258fb49c31e222ecbbcfd128967f
+
+### Read in the data
+```{r}
+lizards <- read_csv(here('data','lizard.csv'),
+                    show_col_types = FALSE)
+
+```
+
+
+### Fit NLS model to all lizard species
+
+#### Get first guess of parameters a and b
+```{r}
+# Establish the fromula that describe the relationship between weight and SVL
+length_to_weight <- function(a,SV_length,b) {
+  out = a*(SV_length)^b
+  
+  return(out)
+}
+
+# Log-transform weight and SVL
+lizards <- lizards %>%
+  mutate(log_length = log(SV_length)) %>%
+  mutate(log_weight = log(weight))
+
+# Build up OLS regression to get first guess of parameters a and b
+
+my_guess_model <- lm(log_weight~log_length, data = lizards)
+
+# according to coefficients above, b = 2.53712, a = e^-8.47545
+# store the guess of a and b as guess_vec
+
+guess_vec=c(exp(my_guess_model$coefficients[1]), my_guess_model$coefficients[2])
+
+```
+
+#### Build up NLS model for all lizard species based on the first guess of a and b above
+```{r}
+lizards_nls = nls(weight~length_to_weight(a,SV_length,b),
+                  data = lizards,
+                  start = list(a = guess_vec[1], b = guess_vec[2]))
+
+# Put model output in `kable` format
+lizards_nls_tidy <- broom::tidy(lizards_nls)
+
+lizards_nls_tidy %>%
+  kbl(caption = "non-linear least square model for all lizard species and sex ",
+      col.names = c( 'Parameters',
+                     'Coefficient_Estimates',
+                     'Standard_Error',
+                     'Statistics',
+                     'P_Value'),
+      digits =c(0,5,5,5,5) ) %>%
+  kable_classic(full_width = F, html_font = "Cambria",position = "center")
+```
+
+#### Make a graph of fitted model for all lizard species
+```{r fig.cap= "This figure demonstrates the result of the fitted model lay above the points from original dataset, with color differentiate the sex of lizards. The black line represents the result of fitted model, with the weight predicted from the nls model above (with SV length from original dataset). The points represent the SV length and weight measured from the real world."}
+
+# Make prediction from NLS model
+lizards <- lizards%>%
+  mutate(prediction = predict(lizards_nls,newdata = lizards))
+
+# Make graph based on prediction
+ggplot() +
+  geom_point(data = lizards,aes(x = SV_length, y = weight, color = sex)) +
+  geom_line (data = lizards,aes(x = SV_length, y = prediction)) +
+  labs(x = "Snout to Vent Length", y = "Weight")
+
+```
+### Fit NLS model only to male Western whiptail lizard
+
+#### Get first guess of parameters a and b
+```{r}
+# Filter original dataset only to male Western whiptail lizard 
+lizards_CNTI <- lizards %>%
+  filter(sex == "M", spp == "CNTI") %>%
+  select(-prediction)
+
+# Establish OLS regression model to get parameter a and b
+my_guess_model_CNTI <- lm(log_weight~log_length, data = lizards_CNTI)
+
+# store parameter a and b in the guess_vec_CNTI
+guess_vec_CNTI <- c(exp(my_guess_model_CNTI$coefficients[1]), my_guess_model_CNTI$coefficients[2])
+```
+
+#### Build up NLS model for male Western whiptail lizard based on the first guess of a and b above
+```{r}
+
+lizards_nls_CNTI = nls(weight~length_to_weight(a,SV_length,b),
+                       data = lizards_CNTI,
+                       start = list(a = guess_vec_CNTI[1], b = guess_vec_CNTI[2]))
+
+# Make prediction on the weight of Male CNTI lizard by using both general species NLS and species specific NLS
+
+lizards_CNTI <- lizards_CNTI %>%
+  mutate(prediction_spp_nls = predict(lizards_nls_CNTI,newdata = lizards_CNTI)) %>%
+  mutate(prediction_general_nls = predict(lizards_nls,newdata = lizards_CNTI))
+```
+
+#### Calculate RMSE for both fitted model
+```{r}
+
+# Establish the function of RMSE
+calc_rmse <- function (x,y) {
+  rmse_result <- (x - y)^2 %>% mean() %>% sqrt()
+  return(rmse_result)
+}
+
+# calculate RMSE for general NLS and species specific NLS
+rmse_spp_nls = calc_rmse(lizards_CNTI$weight, lizards_CNTI$prediction_spp_nls)
+
+rmse_general_nls = calc_rmse(lizards_CNTI$weight, lizards_CNTI$prediction_general_nls)
+
+rmse_result <- c(rmse_general_nls, rmse_spp_nls)
+
+rmse_result
+```
+
+#### Make a graph for both models on Western whiptail lizard data
+```{r fig.cap = "This figure demonstrates the result of the fitted model from both NLS general and NLS species specific models. The red line represents the fitted model from NLS species specific model, and the blue line represents the fitted model from NLS general model. The purple dots represent the original data for Western whiptail lizard. From the graph, it can be seen that the two fitted models are closed enough, but from RMSE result above, it shows NLS species specific model performs better than NLS general model on species specific data with lower RMSE (general RMSE 3.56 > species specific RMSE 3.35). therefore, we should establish NLS model for each subsets we want to look at rather than use the general model to predict all. "}
+
+ggplot() +
+  geom_line (data = lizards_CNTI,aes(x = SV_length, y = prediction_general_nls),color = "blue") +
+  geom_line (data = lizards_CNTI, aes(x = SV_length, y = prediction_spp_nls), color = "red") +
+  geom_point(data = lizards_CNTI, aes(x = SV_length, y = weight), color = "purple") +
+  labs(x = "Snout to Vent Length", y = "Weight")
+```
+
+
+

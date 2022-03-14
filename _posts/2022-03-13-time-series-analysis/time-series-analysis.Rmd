@@ -1,0 +1,105 @@
+---
+title: "Time Series Analysis"
+description: |
+  This post demonstrates time series analysis for fish passage time at Willamette Falls from 2001 - 2010.
+author:
+  - name: Yutian Fang
+    url: {}
+date: 2022-03-13
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=TRUE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(here)
+library(lubridate)
+library(tsibble)
+library(feasts)
+```
+
+### Data Summary
+
+* Data Description: This time series dataset describes fish passage time for multiple species through fish ladder on Willamette Fall from year 2001-2010. 
+* Analysis Process:This task is composed by three parts focusing on the passage time of three fish species: coho, jack coho and steelhead. In the first part we explore the original time series plot for each species, with the second part describes seasonal patterns and the third part describes annual patterns for each species.  
+* Data Citation: Columbia River DART, Columbia Basin Research, University of Washington.(2022). Adult Passage Graphics & Text. Available from http://www.cbr.washington.edu/dart/query/adult_graph_text
+
+```{r}
+# Read in data and replace NA with 0
+passage <- read_csv(here('data/willamette_fish_passage.csv')) %>%
+   mutate(across(everything(), ~ ifelse(is.na(.), 0, .)))
+
+# Turn passage into time series data
+passage_ts <- passage %>%
+  mutate(Date = lubridate::mdy(Date)) %>%
+  as_tsibble(key = NULL, index = Date) %>%
+  janitor::clean_names() %>%
+  select(date, coho, jack_coho, steelhead)
+
+#Transform the format of passage_ts
+passage_ts_clean <- passage_ts %>%
+  pivot_longer(cols = c(coho, jack_coho, steelhead)) %>%
+  rename(species = name)
+```
+
+### Original time series
+```{r fig.cap = "This line figure shows the original time series for coho, jack coho and steelhead, demonstrated in red, blue and green lines. The x-axis represents date (on day), and y-axis represents counts of each species on that date."}
+ggplot(data = passage_ts_clean, aes(x = date, y = value)) +
+  geom_line(aes(color = species)) +
+  scale_color_manual(values = c("red","blue","green")) +
+  labs(x = 'Date',
+       y = 'Counts by Species' ) +
+  theme_classic()
+```
+
+#### Observed Trend
+* Obvious seasonal patterns of passage time demonstrated across all three species (with peak, demonstrates high counts of species in certain time period)
+* Similar passage time for coho and jack coho (their peaks tend to overlap with each other), while steelhead has a different seasonal pattern for passage time compared with them (the peak of steelhead does not overlap with coho and jack coho)
+* Jack coho has generally lower counts overall compared with other two species
+
+### Seasonplots
+```{r fig.cap = "This figure is composed by three panels, with each panel represents the seasonal plot of each species. The x-axis represents month in each year, and y-axis represents the summarized counts of species in that month. The lines are colored based on survey year."}
+
+#create monthly dataset
+passage_ts_month <- passage_ts_clean %>%
+  index_by(yr_mo = ~yearmonth(.)) %>%
+  group_by(species) %>%
+  summarize(monthly_species = sum(value))
+
+#Make seasonal plot
+gg_season(data = passage_ts_month, y = monthly_species) +
+  labs(x = 'Month', y = 'Counts for Species') +
+  theme_classic()
+
+```
+
+#### Observed Trend
+* Passage time for coho and jack coho are in Fall (from Aug - Oct), while the passage time for steelhead are in Spring and early summer (from Mar - Jul) 
+* The number of coho suddenly increases in year 2009 and 2010 (higher peak in those two years than previous)
+
+### Annual counts by species
+```{r fig.cap = "This line figure demonstrates how the total annual counts of three fish species change with survey year. Red line represents coho, blue line represents jack coho, and green line represents steelhead. x-axis represents survey year, and y-axis represents total annual counts by species."}
+
+# Create annual dataset
+passage_ts_annual <- passage_ts_clean %>%
+  index_by(yr = ~year(.)) %>%
+  group_by(species) %>%
+  summarize(annual_species = sum(value))
+
+# Create line graph
+ggplot(data = passage_ts_annual, aes(x = yr, y = annual_species)) +
+  geom_line(aes(color = species)) +
+  scale_x_continuous(breaks = c(2001:2010)) +
+  scale_color_manual(values = c("red","blue","green")) +
+  labs(x = 'Year',
+       y = 'Counts by Species' ) +
+  theme_classic()
+
+```
+
+#### Observed Trend
+* Jack coho has the lowest annual counts overall than other two species
+* Steelhead has the highest annual counts overall than other two species
+* The sudden increase in coho annual counts start in 2008

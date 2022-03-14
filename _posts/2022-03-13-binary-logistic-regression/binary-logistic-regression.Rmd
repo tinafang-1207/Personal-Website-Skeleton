@@ -1,0 +1,184 @@
+---
+title: "Binary Logistic Regression"
+description: |
+  This post demonstrates how to use binay logistic regression to categorize two palmetto species in Florida. General analysis process includes data exploration, model build up and model selection. 
+author:
+  - name: Yutian Fang
+    url: {}
+date: 2022-03-13
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=TRUE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(here)
+library(broom)
+library(caret)
+library(AICcmodavg)
+library(patchwork)
+library(kableExtra)
+```
+
+### Overview of the data:
+
+* Data Description: The data in this task comes from the survival,growth and biomass estimates of two dominant palmetto species in Florida. The surveying year is from 1981 - 2017. The variables focused on this task include palmetto species ("plant"), palmetto height ("height"), palmetto canopy length("length"), palmetto canopy width("width"), and counts of green leaves (green_lvs).
+* Task Objective: This task focuses on using quantitative variables (height, length, width, counts of green leaves) to predict the species of Palmetto (either "Serenoa repens" or "Sabal etonia"). Two binary logistic regression models will be built, with the better one selected from AIC and cross-validation result.
+* Analysis Process: First, the original dataset is cleaned and 3 plots are made to explore which variable might be the best variable that differentiate the two species. Next, two binary logistic regression models are built to predict palmetto species, and then use AIC and cross-validation to select the better one among the two. Finally, the classification results are examined by using the selected model to predict palmetto species from original dataset, and the % of correctly classified for each species is calculated. 
+* Data Citation: Abrahamson, W.G. 2019. Survival, growth and biomass estimates of two dominant palmetto species of south-central Florida from 1981 - 2017, ongoing at 5-year intervals ver 1. Environmental Data Initiative. https://doi.org/10.6073/pasta/f2f96ec76fbbd4b9db431c79a770c4d5 (Accessed 2022-02-03).
+
+### Read in data
+```{r}
+palmetto <-read_csv(here('data','palmetto.csv'),
+                    show_col_types = FALSE)
+```
+
+### Pre-process data - make it clean
+```{r}
+# Select columns that will be used in the study
+palmetto_df <- palmetto %>%
+  select(-year,-plant,-site,-habitat,-treatment,-survival,-scape,-new_lvs,-biomass,-canopy,-lf_long,-comments) %>%
+  mutate(species = as.factor(species)) %>%
+  drop_na()
+
+# Change plant species from "1" and "2" to species name
+palmetto_df$species <- recode_factor(palmetto_df$species, "1" = "Serenoa repens", "2" = "Sabal etonia")
+```
+
+### Create 3 graphs to explore which variable more likely to help classify species
+```{r fig.cap= "This compound figure is composed by three sub-figures: the first one shows the relationship between height and canopy length, the second one shows between height and canopy width, and the third one between height and counts of green leaves. The color of the points represent different plant species. According to the compound figure, counts of green leaves seem to do the best job of classifying two species, as can be seen, the two color points are most seperated in the third sub-figure."}
+
+p1 <- ggplot(data = palmetto_df, aes(x = height, y = length)) +
+  geom_point(aes(color = species)) +
+  labs(x = "height (cm)", y = "length (cm)")
+
+p2 <- ggplot(data = palmetto_df, aes(x = height, y = width)) +
+  geom_point(aes(color = species)) +
+  labs(x = "height (cm)", y = "width (cm)")
+
+p3 <- ggplot(data = palmetto_df, aes(x = height, y = green_lvs)) +
+  geom_point(aes(color = species)) +
+  labs(x = "height (cm)", y = "count of green leaves")
+
+p1/p2/p3
+
+```
+
+### Build up binary logistic regression model
+
+#### Model1: Use height, width, length and counts of green leaves to predict palmetto species
+```{r}
+f1 <- species~height + width + length + green_lvs
+
+pal_df_blr1 <- glm(formula = f1,
+                   data = palmetto_df,
+                   family = 'binomial')
+
+```
+
+#### Model2: Use height, width and counts of green leaves to predict palmetto species
+```{r}
+f2 <- species~height + width + green_lvs
+
+pal_df_blr2 <- glm(formula = f2,
+                   data = palmetto_df,
+                   family = 'binomial')
+
+```
+
+### Model selection based on AIC and cross-validation
+
+#### Use `caret` package to automate cross validation(10-fold validation, repeated 10 times)
+
+```{r}
+set.seed(123)
+
+tr_ctrl <- trainControl(method = 'repeatedcv', number = 10, repeats = 10)
+
+### train the model
+
+model1 <- train(f1, data = palmetto_df,
+                method = 'glm', family = 'binomial',
+                trControl = tr_ctrl)
+
+model1
+
+model2 <- train(f2, data = palmetto_df,
+                method = 'glm', family = 'binomial',
+                trControl = tr_ctrl)
+
+model2
+
+```
+
+According to the accuracy result, the first model performs better than the second one with higher accuracy (0.9169>0.8988)
+
+#### Use `AICcmodavg::aictab` to compare the model results
+```{r}
+AICcmodavg::aictab(list(pal_df_blr1, pal_df_blr2))
+
+```
+
+According to the AIC result, the first model performs better than the second one with lower AIC value (5194.57 < 5987.48)
+
+Therefore, I select model 1 to train the entire dataset. 
+
+### Formatted Model 1 table
+```{r}
+blr1_tidy <- broom::tidy(pal_df_blr1)
+
+blr1_tidy %>%
+  mutate(p_value = ifelse(p.value <0.001, "<0.001", "0")) %>%
+  select(-p.value) %>%
+  kbl(caption = "Table1: Binary Logistic Regression Result for Model1",
+      col.names = c( 'Variable_Name',
+                     'Coefficient_Estimates',
+                     'Standard_Error',
+                     'Statistics',
+                     'P_Value'),
+      digits = c(0,5,5,5,0)) %>%
+  kable_classic(full_width = F, html_font = "Cambria",position = "center")
+```
+
+### Original data classification based on model1
+
+#### Create species prediction based on model1, examine whether the prediction is accurate
+```{r}
+blr1_fitted <- pal_df_blr1 %>%
+  broom::augment(type.predict = 'response') %>%
+  select(-.resid, -.std.resid, -.hat, -.sigma, -.cooksd) %>%
+  mutate(species_predicted = ifelse(.fitted >= 0.5, "Sabal etonia", "Serenoa repens" )) %>%
+  mutate(correct_classified = ifelse(species == species_predicted, "TRUE", "FALSE"))
+  
+```
+
+#### Create final table, and format the final table
+```{r}
+
+# Create final table
+final_table <- blr1_fitted %>%
+  select(-height,-width,-length,-green_lvs,-.fitted,-species_predicted) %>%
+  group_by(species) %>%
+  count(correct_classified) %>%
+  rename(number_counts = n) %>%
+  mutate(total_counts = sum(number_counts)) %>%
+  mutate(percentage_classified = (number_counts/total_counts)*100) %>%
+  select(-total_counts)
+
+# Format final table
+final_table %>%
+    kbl(caption = "Table2: Final Classified Table",
+      col.names = c( 'Species',
+                     'Classified_Correctly?',
+                     'Counts_of_Classification',
+                     'Classified_Percentage(%)'),
+      digits = c(0,0,0,3)) %>%
+  kable_classic(full_width = F, html_font = "Cambria",position = "center")
+
+```
+
+According to the Table 2 result above, model 1 does a good job in predicting Palmetto species based on height, canopy length and width, and also counts of green leaves with percentage of correctly classified above 90% for both of species. Among the two species, model 1 has higher prediction accuracy for Sabal etonia compared to Serenoa repens (92.62% > 90.77%). 

@@ -1,5 +1,5 @@
 ---
-title: "Welcome to my Data Science Blog"
+title: "Welcome!"
 description: |
   Welcome to this data science blog! In this blog, I will share some mini data science projects I did in R both from course or research which will updates at irregular schedules. I will include result and R code in each post. Click and check out each of them if you feel interested! Enjoy!
 author:
@@ -9,7 +9,5 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-
-Welcome to this data science blog! In this blog, I will share some mini data science projects I did in R both from course or research which will updates at irregular schedules. I will include result and R code in each post. Click and check out each of them if you feel interested! Enjoy!
 
 
