@@ -1,7 +1,7 @@
 ---
 title: "Curriculum Vitae"  
 ---
-<a href = 'Yutian_Fang_CV.pdf' target = '_blank'>Click here for a full PDF version</a>
+<a href = 'Yutian_Fang_CV.PDF' target = '_blank'>Click here for a full PDF version</a>
 
 ## Education
 
